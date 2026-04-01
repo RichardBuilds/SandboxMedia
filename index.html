@@ -1,0 +1,2003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI-Enabled Growth — Sandbox Media</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300&family=DM+Mono:wght@300;400&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy: #0A1628;
+  --navy-mid: #12213A;
+  --blue: #1B52A8;
+  --blue-light: #2D6FD4;
+  --ice: #E8F0FB;
+  --white: #F5F7FA;
+  --pure: #FFFFFF;
+  --muted: #7A8FA8;
+  --body: #C8D6E8;
+  --green: #1A7A4A;
+  --green-light: #E3F5EC;
+  --amber: #C4620A;
+  --amber-light: #FDF0E3;
+  --rule: rgba(255,255,255,0.08);
+  --accent: #3B82F6;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--navy);
+  color: var(--white);
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  height: 56px;
+  background: rgba(10,22,40,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--rule);
+}
+
+.nav-brand {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--white); }
+
+/* ── SECTIONS ── */
+section {
+  min-height: 100vh;
+  padding: 120px 0 80px;
+  position: relative;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+/* ── SECTION LABELS ── */
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 48px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.section-label::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--blue);
+}
+
+/* ── HERO / COVER ── */
+#cover {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  border-bottom: 1px solid var(--rule);
+}
+
+.cover-inner {
+  width: 100%;
+}
+
+.cover-meta {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.cover-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(52px, 7vw, 88px);
+  font-weight: 300;
+  line-height: 1.0;
+  color: var(--pure);
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+
+.cover-title em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.cover-subtitle {
+  font-size: 18px;
+  color: var(--body);
+  font-weight: 400;
+  max-width: 560px;
+  margin-bottom: 56px;
+  line-height: 1.6;
+}
+
+.cover-rule {
+  width: 64px;
+  height: 2px;
+  background: var(--blue);
+  margin-bottom: 40px;
+}
+
+.cover-addressee {
+  font-size: 14px;
+  color: var(--muted);
+}
+.cover-addressee strong {
+  color: var(--white);
+  font-weight: 500;
+}
+
+.badge-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 48px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border: 1px solid rgba(59,130,246,0.3);
+  color: var(--accent);
+  border-radius: 2px;
+}
+
+/* ── EXEC SUMMARY ── */
+#exec-summary {
+  background: var(--navy-mid);
+  border-bottom: 1px solid var(--rule);
+}
+
+.scr-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+  margin-top: 16px;
+}
+
+.scr-card {
+  background: var(--navy);
+  padding: 36px 32px;
+}
+
+.scr-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: inline-block;
+  padding: 4px 10px;
+}
+
+.scr-tag.situation   { background: rgba(122,143,168,0.15); color: var(--muted); }
+.scr-tag.complication { background: rgba(196,98,10,0.15); color: var(--amber); }
+.scr-tag.resolution   { background: rgba(26,122,74,0.15); color: var(--green); }
+
+.scr-card p {
+  font-size: 14px;
+  color: var(--body);
+  line-height: 1.7;
+}
+
+.scr-card .scr-headline {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--pure);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.recommendation-box {
+  margin-top: 48px;
+  padding: 32px;
+  border-left: 3px solid var(--green);
+  background: rgba(26,122,74,0.06);
+}
+
+.recommendation-box p {
+  font-size: 15px;
+  color: var(--body);
+  line-height: 1.7;
+}
+.recommendation-box strong { color: var(--pure); }
+
+/* ── SECTION HEADLINES ── */
+.section-headline {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--pure);
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.section-deck {
+  font-size: 16px;
+  color: var(--body);
+  max-width: 640px;
+  margin-bottom: 56px;
+  line-height: 1.7;
+}
+
+/* ── STAT GRID ── */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  margin-bottom: 48px;
+}
+
+.stat-card {
+  background: var(--navy-mid);
+  padding: 32px 28px;
+  border-left: 3px solid var(--blue);
+}
+
+.stat-val {
+  font-family: 'Fraunces', serif;
+  font-size: 42px;
+  font-weight: 300;
+  color: var(--pure);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* ── CONTENT BLOCKS ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.content-block {
+  background: var(--navy-mid);
+}
+
+.content-block-header {
+  background: var(--blue);
+  padding: 16px 24px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--pure);
+}
+
+.content-block-body {
+  padding: 24px;
+}
+
+.content-block-body ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.content-block-body ul li {
+  font-size: 13px;
+  color: var(--body);
+  line-height: 1.6;
+  padding-left: 16px;
+  position: relative;
+}
+
+.content-block-body ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--blue-light);
+}
+
+/* ── MODEL CARDS (intro section) ── */
+.model-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.model-card {
+  padding: 32px 28px;
+  border: 1px solid var(--rule);
+  position: relative;
+  overflow: hidden;
+}
+
+.model-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 3px;
+  background: var(--blue);
+}
+
+.model-card-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.model-card-title {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--pure);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.model-card p {
+  font-size: 13px;
+  color: var(--body);
+  line-height: 1.7;
+}
+
+/* ── CONSTRAINT SECTION ── */
+#constraint {
+  background: var(--navy-mid);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.constraint-visual {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  margin-bottom: 48px;
+}
+
+.constraint-step {
+  padding: 24px 20px;
+  background: var(--navy);
+  position: relative;
+  text-align: center;
+}
+
+.constraint-step.bottleneck {
+  background: rgba(196,98,10,0.12);
+  border: 1px solid rgba(196,98,10,0.3);
+}
+
+.constraint-step-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.constraint-step.bottleneck .constraint-step-label {
+  color: var(--amber);
+}
+
+.constraint-step-sub {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.constraint-arrow {
+  position: absolute;
+  right: -13px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  font-size: 18px;
+  z-index: 2;
+}
+
+.bottleneck-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: var(--amber);
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.pain-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--rule);
+}
+
+.pain-card {
+  background: var(--navy);
+  padding: 28px 24px;
+}
+
+.pain-card-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.pain-card p {
+  font-size: 12px;
+  color: var(--body);
+  line-height: 1.65;
+}
+
+.amber-box {
+  margin-top: 40px;
+  padding: 28px 32px;
+  border-left: 3px solid var(--amber);
+  background: rgba(196,98,10,0.06);
+}
+
+.amber-box p {
+  font-size: 14px;
+  color: var(--body);
+  line-height: 1.7;
+}
+.amber-box strong { color: var(--pure); }
+
+/* ── OPPORTUNITY ── */
+.before-after {
+  display: grid;
+  grid-template-columns: 1fr 48px 1fr;
+  gap: 0;
+  margin-top: 40px;
+  align-items: stretch;
+}
+
+.ba-col { }
+
+.ba-header {
+  padding: 14px 24px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pure);
+}
+
+.ba-header.before { background: rgba(196,98,10,0.8); }
+.ba-header.after  { background: rgba(26,122,74,0.8); }
+
+.ba-body {
+  padding: 28px 24px;
+  background: var(--navy-mid);
+  height: calc(100% - 48px);
+}
+
+.ba-body ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ba-body ul li {
+  font-size: 13px;
+  color: var(--body);
+  line-height: 1.6;
+  padding-left: 18px;
+  position: relative;
+}
+
+.ba-body ul li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.ba-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue-light);
+  font-size: 24px;
+}
+
+/* ── FRAMEWORK ── */
+#framework {
+  background: var(--navy-mid);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.framework-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 1px;
+  background: var(--rule);
+  margin-top: 16px;
+}
+
+.framework-table th {
+  background: var(--navy);
+  padding: 14px 20px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: left;
+  font-weight: 400;
+}
+
+.framework-table th.col-level { color: var(--white); background: var(--blue); }
+
+.framework-table td {
+  background: var(--navy);
+  padding: 18px 20px;
+  font-size: 12px;
+  color: var(--body);
+  line-height: 1.6;
+  vertical-align: top;
+}
+
+.framework-table tr:nth-child(2) td,
+.framework-table tr:nth-child(3) td { background: rgba(26,122,74,0.05); }
+
+.framework-table td.level-cell {
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--pure);
+  min-width: 90px;
+}
+
+.framework-table tr:nth-child(2) td.level-cell,
+.framework-table tr:nth-child(3) td.level-cell { color: #4ade80; }
+
+.day-tasks {
+  margin-top: 48px;
+}
+
+.day-tasks-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.task-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: var(--rule);
+}
+
+.task-item {
+  background: var(--navy);
+  padding: 20px 24px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.task-time {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--blue-light);
+  min-width: 60px;
+  padding-top: 2px;
+}
+
+.task-desc {
+  font-size: 13px;
+  color: var(--body);
+  line-height: 1.6;
+}
+
+/* ── ROI ── */
+.roi-bridge {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  background: var(--rule);
+  margin-top: 40px;
+  margin-bottom: 48px;
+}
+
+.roi-step {
+  background: var(--navy-mid);
+  padding: 28px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.roi-step:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  right: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  font-size: 16px;
+  z-index: 2;
+}
+
+.roi-step-val {
+  font-family: 'Fraunces', serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--pure);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.roi-step-label {
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.roi-step-calc {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  color: var(--blue-light);
+  letter-spacing: 0.05em;
+}
+
+.roi-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 1px;
+  background: var(--rule);
+}
+
+.roi-table thead th {
+  background: var(--navy);
+  padding: 12px 20px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: left;
+  font-weight: 400;
+}
+
+.roi-table tbody td {
+  background: var(--navy-mid);
+  padding: 16px 20px;
+  font-size: 13px;
+  color: var(--body);
+}
+
+.roi-table tbody tr:nth-child(even) td { background: var(--navy); }
+
+.roi-table td.item-col { color: var(--white); font-weight: 500; }
+.roi-table td.val-col  { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 300; color: var(--blue-light); }
+.roi-table td.val-col.green { color: #4ade80; }
+
+/* ── ROLLOUT ── */
+.rollout-phase {
+  margin-bottom: 32px;
+}
+
+.phase-header {
+  padding: 12px 24px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.phase-header.p1 { background: rgba(26,122,74,0.2); color: #4ade80; }
+.phase-header.p2 { background: rgba(27,82,168,0.2); color: var(--blue-light); }
+.phase-header.p3 { background: rgba(122,143,168,0.1); color: var(--muted); }
+
+.rollout-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 1px;
+  background: var(--rule);
+}
+
+.rollout-table th {
+  background: var(--navy);
+  padding: 12px 20px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: left;
+  font-weight: 400;
+}
+
+.rollout-table td {
+  background: var(--navy-mid);
+  padding: 16px 20px;
+  font-size: 13px;
+  color: var(--body);
+  vertical-align: middle;
+}
+
+.rollout-table tr:nth-child(even) td { background: var(--navy); }
+
+.rollout-table td:first-child { color: var(--white); font-weight: 500; }
+.rollout-table td.impact { font-family: 'Fraunces', serif; font-size: 17px; font-weight: 300; color: #4ade80; }
+.effort-badge {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  padding: 3px 10px;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+.effort-low  { background: rgba(26,122,74,0.15); color: #4ade80; }
+.effort-med  { background: rgba(27,82,168,0.15); color: var(--blue-light); }
+
+/* ── SO WHAT ── */
+#so-what {
+  background: var(--navy-mid);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.so-what-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.so-what-card {
+  padding: 36px 28px;
+  border: 1px solid var(--rule);
+  position: relative;
+}
+
+.so-what-num {
+  font-family: 'Fraunces', serif;
+  font-size: 64px;
+  font-weight: 300;
+  color: rgba(59,130,246,0.15);
+  line-height: 1;
+  position: absolute;
+  top: 20px;
+  right: 24px;
+}
+
+.so-what-title {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--pure);
+  margin-bottom: 16px;
+  line-height: 1.25;
+  position: relative;
+  z-index: 1;
+}
+
+.so-what-card p {
+  font-size: 13px;
+  color: var(--body);
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── FIRST MOVER ── */
+.market-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.market-card {
+  padding: 36px 32px;
+  background: var(--navy-mid);
+  border-top: 3px solid var(--blue);
+}
+
+.market-card-title {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--pure);
+  margin-bottom: 16px;
+  line-height: 1.25;
+}
+
+.market-card p {
+  font-size: 13px;
+  color: var(--body);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.market-card p:last-child { margin-bottom: 0; }
+
+.insight-box {
+  margin-top: 40px;
+  padding: 32px;
+  border-left: 3px solid var(--accent);
+  background: rgba(59,130,246,0.05);
+}
+
+.insight-box p {
+  font-size: 15px;
+  color: var(--body);
+  line-height: 1.7;
+}
+.insight-box strong { color: var(--pure); }
+
+/* ── ABOUT ── */
+#about {
+  background: var(--navy-mid);
+  border-top: 1px solid var(--rule);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  margin-top: 40px;
+}
+
+.about-col-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.company-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.company-item {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.company-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.company-role {
+  font-size: 12px;
+  color: var(--body);
+}
+
+.outcome-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.outcome-item {
+  padding: 20px 24px;
+  background: var(--navy);
+  border-left: 3px solid var(--blue);
+}
+
+.outcome-item p {
+  font-size: 13px;
+  color: var(--body);
+  line-height: 1.65;
+}
+
+.outcome-item strong {
+  display: block;
+  font-size: 13px;
+  color: var(--pure);
+  margin-bottom: 4px;
+}
+
+/* ── CLOSE ── */
+#close {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid var(--rule);
+  padding: 80px 0;
+}
+
+.close-inner {
+  text-align: center;
+  width: 100%;
+}
+
+.close-quote {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--pure);
+  max-width: 800px;
+  margin: 0 auto 32px;
+  line-height: 1.2;
+}
+
+.close-sub {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── FOOTER ── */
+footer {
+  padding: 28px 48px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer p {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+/* ── RESPONSIVE ── */
+/* ── HAMBURGER MENU ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+}
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--muted);
+  transition: all 0.25s;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); background: var(--white); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); background: var(--white); }
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 56px; left: 0; right: 0;
+  background: rgba(10,22,40,0.98);
+  backdrop-filter: blur(12px);
+  z-index: 99;
+  border-bottom: 1px solid var(--rule);
+  padding: 20px 24px;
+}
+.mobile-menu.open { display: block; }
+.mobile-menu a {
+  display: block;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule);
+  transition: color 0.2s;
+}
+.mobile-menu a:last-child { border-bottom: none; }
+.mobile-menu a:hover { color: var(--white); }
+
+/* ── TABLET (max 900px) ── */
+@media (max-width: 900px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .container { padding: 0 20px; }
+  section { padding: 90px 0 56px; }
+
+  .scr-grid, .model-grid, .so-what-grid { grid-template-columns: 1fr; }
+  .two-col, .about-grid, .market-grid, .task-list { grid-template-columns: 1fr; }
+  .before-after { grid-template-columns: 1fr; }
+  .ba-arrow { display: none; }
+  .company-item { grid-template-columns: 1fr; gap: 4px; }
+
+  .stat-grid { grid-template-columns: 1fr 1fr; }
+  .constraint-visual { grid-template-columns: 1fr 1fr; }
+  .pain-grid { grid-template-columns: 1fr 1fr; }
+  .roi-bridge { grid-template-columns: 1fr 1fr; }
+
+  /* Tables: shrink but keep readable at tablet */
+  .framework-table, .rollout-table, .roi-table { font-size: 12px; }
+  .framework-table th, .framework-table td,
+  .rollout-table th, .rollout-table td,
+  .roi-table thead th, .roi-table tbody td { padding: 12px 14px; }
+}
+
+/* ── MOBILE (max 600px) ── */
+@media (max-width: 600px) {
+  nav { padding: 0 16px; height: 52px; }
+  .container { padding: 0 16px; }
+  section { padding: 80px 0 48px; }
+
+  /* Typography */
+  .cover-title { font-size: 44px; }
+  .cover-subtitle { font-size: 15px; }
+  .section-headline { font-size: 28px; }
+  .section-deck { font-size: 14px; margin-bottom: 36px; }
+
+  /* All grids collapse to single column */
+  .stat-grid { grid-template-columns: 1fr 1fr; gap: 1px; }
+  .constraint-visual { grid-template-columns: 1fr; gap: 2px; }
+  .pain-grid { grid-template-columns: 1fr; }
+  .roi-bridge { grid-template-columns: 1fr 1fr; gap: 1px; }
+
+  .stat-card { padding: 20px 16px; }
+  .stat-val { font-size: 30px; }
+
+  .roi-step { padding: 20px 12px; }
+  .roi-step-val { font-size: 24px; }
+  .roi-step:not(:last-child)::after { display: none; }
+
+  /* SCR cards */
+  .scr-card { padding: 24px 20px; }
+  .scr-card .scr-headline { font-size: 17px; }
+  .scr-card p { font-size: 13px; }
+
+  /* Model cards */
+  .model-card { padding: 24px 20px; }
+  .model-card-title { font-size: 18px; }
+
+  /* Before/after */
+  .ba-header { padding: 12px 16px; }
+  .ba-body { padding: 20px 16px; }
+
+  /* Constraint steps */
+  .constraint-step { padding: 18px 14px; }
+  .constraint-arrow { display: none; }
+
+  /* Pain cards */
+  .pain-card { padding: 20px 16px; }
+
+  /* Framework table → card stack */
+  .framework-table { display: none; }
+  .framework-cards { display: flex !important; flex-direction: column; gap: 2px; margin-top: 16px; }
+  .fw-card {
+    background: var(--navy);
+    padding: 20px;
+    border-left: 3px solid var(--blue);
+  }
+  .fw-card-level {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--pure);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .fw-card-level.step-task { color: #4ade80; border-color: rgba(74,222,128,0.2); }
+  .fw-row { display: grid; grid-template-columns: 90px 1fr; gap: 8px; margin-bottom: 10px; }
+  .fw-row:last-child { margin-bottom: 0; }
+  .fw-col-head {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+    padding-top: 2px;
+  }
+  .fw-col-val { font-size: 12px; color: var(--body); line-height: 1.55; }
+
+  /* Rollout tables → card stack */
+  .rollout-table { display: none; }
+  .rollout-cards { display: flex !important; flex-direction: column; gap: 2px; }
+  .ro-card {
+    background: var(--navy-mid);
+    padding: 18px 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .ro-card:nth-child(even) { background: var(--navy); }
+  .ro-name { grid-column: 1 / -1; font-size: 13px; font-weight: 600; color: var(--pure); margin-bottom: 4px; }
+  .ro-item { }
+  .ro-item-label { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
+  .ro-item-val { font-size: 12px; color: var(--body); }
+  .ro-item-val.impact { font-family: 'Fraunces', serif; font-size: 16px; color: #4ade80; font-weight: 300; }
+
+  /* ROI table */
+  .roi-table { display: none; }
+  .roi-cards { display: flex !important; flex-direction: column; gap: 2px; }
+  .roi-card {
+    background: var(--navy-mid);
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .roi-card:nth-child(even) { background: var(--navy); }
+  .roi-card-item { font-size: 13px; font-weight: 500; color: var(--white); }
+  .roi-card-val { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 300; color: var(--blue-light); line-height: 1; }
+  .roi-card-val.green { color: #4ade80; }
+  .roi-card-note { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  /* So what */
+  .so-what-card { padding: 28px 20px; }
+  .so-what-title { font-size: 17px; }
+  .so-what-num { font-size: 48px; }
+
+  /* About */
+  .outcome-item { padding: 16px 18px; }
+  .about-grid { gap: 40px; }
+
+  /* Recommendation / insight boxes */
+  .recommendation-box, .amber-box, .insight-box { padding: 22px 18px; }
+
+  /* Task list */
+  .task-item { padding: 16px; gap: 12px; }
+  .task-time { min-width: 50px; font-size: 9px; }
+  .task-desc { font-size: 12px; }
+
+  /* Day-tasks grid collapse */
+  .task-list { gap: 2px; }
+
+  /* Cover badges */
+  .badge { font-size: 9px; padding: 5px 10px; }
+  .badge-row { gap: 8px; margin-top: 32px; }
+
+  /* Close */
+  .close-quote { font-size: 24px; }
+
+  /* Footer */
+  footer { flex-direction: column; gap: 8px; padding: 20px 16px; text-align: center; }
+
+  /* Phase headers */
+  .phase-header { padding: 10px 16px; font-size: 10px; }
+
+  /* Market cards */
+  .market-card { padding: 24px 20px; }
+}
+
+/* ── VERY SMALL (max 380px) ── */
+@media (max-width: 380px) {
+  .cover-title { font-size: 36px; }
+  .section-headline { font-size: 24px; }
+  .stat-grid { grid-template-columns: 1fr; }
+  .roi-bridge { grid-template-columns: 1fr; }
+  .ro-card { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">Sandbox Media · AI Proposal</div>
+  <ul class="nav-links">
+    <li><a href="#exec-summary">Summary</a></li>
+    <li><a href="#intro">Context</a></li>
+    <li><a href="#constraint">Constraint</a></li>
+    <li><a href="#opportunity">Opportunity</a></li>
+    <li><a href="#framework">Framework</a></li>
+    <li><a href="#roi">ROI</a></li>
+    <li><a href="#rollout">Rollout</a></li>
+    <li><a href="#so-what">So What</a></li>
+    <li><a href="#first-mover">Market</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#exec-summary" class="mobile-link">00 · Executive Summary</a>
+  <a href="#intro" class="mobile-link">01 · Business Context</a>
+  <a href="#constraint" class="mobile-link">02 · The Constraint</a>
+  <a href="#opportunity" class="mobile-link">03 · The Opportunity</a>
+  <a href="#framework" class="mobile-link">04 · Framework</a>
+  <a href="#roi" class="mobile-link">05 · ROI</a>
+  <a href="#rollout" class="mobile-link">06 · Rollout</a>
+  <a href="#so-what" class="mobile-link">07 · So What</a>
+  <a href="#first-mover" class="mobile-link">08 · Market Position</a>
+  <a href="#about" class="mobile-link">09 · About</a>
+</div>
+
+<!-- SLIDE 0: COVER -->
+<section id="cover">
+  <div class="container">
+    <div class="cover-inner reveal">
+      <div class="cover-meta">Confidential &nbsp;·&nbsp; April 2026 &nbsp;·&nbsp; Sandbox Media Pty Ltd</div>
+      <h1 class="cover-title">AI-Enabled<br><em>Growth</em></h1>
+      <p class="cover-subtitle">How Sandbox Media can scale revenue without scaling headcount — and protect what's been built through acquisition.</p>
+      <div class="cover-rule"></div>
+      <p class="cover-addressee">Prepared for <strong>Anthony Colreavy</strong>, Chairman — Sandbox Media Pty Ltd</p>
+      <div class="badge-row">
+        <span class="badge">$25M Revenue</span>
+        <span class="badge">~25 Headcount</span>
+        <span class="badge">Mid-Acquisition</span>
+        <span class="badge">April 2026</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 0: EXECUTIVE SUMMARY -->
+<section id="exec-summary">
+  <div class="container">
+    <div class="section-label reveal">00 &nbsp; Executive Summary</div>
+    <h2 class="section-headline reveal">Sandbox can add $2M+ in annual revenue<br>without a single new hire.</h2>
+    <div class="scr-grid reveal">
+      <div class="scr-card">
+        <span class="scr-tag situation">Situation</span>
+        <p class="scr-headline">A lean, high-performing agency at capacity</p>
+        <p>Sandbox Media generates $25M in revenue with ~25 people, placing $150–200M in annual media spend. Revenue per head ($1.25M) is strong. But growth requires more account executives — costing $80–110k each and taking 6–12 months to ramp.</p>
+      </div>
+      <div class="scr-card">
+        <span class="scr-tag complication">Complication</span>
+        <p class="scr-headline">Headcount is the ceiling on revenue</p>
+        <p>~70% of account team time is consumed by manual, repetitive work: pulling data, formatting reports, reconciling invoices, drafting emails. Each executive can only carry 5–7 accounts before quality degrades. Headcount is the ceiling on growth.</p>
+      </div>
+      <div class="scr-card">
+        <span class="scr-tag resolution">Resolution</span>
+        <p class="scr-headline">AI reclaims capacity without a hire</p>
+        <p>AI and automation can reclaim 4–5 hours per person per week — freeing capacity equivalent to 1.5 senior executives. Applied correctly, this absorbs 2–3 additional accounts per year with zero new headcount. On $250k average account revenue: $500–750k per cohort, compounding annually.</p>
+      </div>
+    </div>
+    <div class="recommendation-box reveal">
+      <p><strong>The recommendation:</strong> begin the first three initiatives within 30 days. Automated reporting, reconciliation, and client comms drafting require no new infrastructure and deliver measurable capacity within weeks. The question is not whether to invest. It is how quickly to begin.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 1: BUSINESS CONTEXT -->
+<section id="intro">
+  <div class="container">
+    <div class="section-label reveal">01 &nbsp; Business Context</div>
+    <h2 class="section-headline reveal">The business, the model,<br>the revenue engine.</h2>
+    <p class="section-deck reveal">Three lenses on how Sandbox Media operates — what it is, how it makes money, and how it delivers its value every day.</p>
+
+    <div class="stat-grid reveal">
+      <div class="stat-card">
+        <div class="stat-val">$25M</div>
+        <div class="stat-label">Annual revenue</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">~25</div>
+        <div class="stat-label">Headcount</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">$1.25M</div>
+        <div class="stat-label">Revenue per head</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">$150–200M</div>
+        <div class="stat-label">Managed media billings</div>
+      </div>
+    </div>
+
+    <div class="model-grid reveal">
+      <div class="model-card">
+        <div class="model-card-num">Business Model</div>
+        <div class="model-card-title">Professional buyer between advertiser and media</div>
+        <p>Sandbox sits between businesses that want to advertise and media companies that sell the space. Like a mortgage broker — it doesn't own the inventory, it facilitates the transaction and earns the margin. The advantage it sells is expertise, relationships, and buying scale that clients can't replicate internally.</p>
+      </div>
+      <div class="model-card">
+        <div class="model-card-num">Revenue Model</div>
+        <div class="model-card-title">Commission on billings + programmatic trading margin</div>
+        <p>Two streams: a 10–15% commission on every dollar of media placed (on $150–200M in billings, that's $15–22M); and programmatic trading margin — buying digital inventory at wholesale through DSPs and deploying it at a spread. Revenue scales with billing volume and client retention, not headcount.</p>
+        <p style="margin-top:12px; font-size:12px; color: var(--muted);">Example: Showpo's $3M budget → $375k commission + $60k programmatic margin = $435k from one account. One executive manages this relationship.</p>
+      </div>
+      <div class="model-card">
+        <div class="model-card-num">Operating Model</div>
+        <div class="model-card-title">High-touch, relationship-led, labour-constrained</div>
+        <p>Three layers: client service (account directors and executives managing relationships and campaigns), buying and trading (media schedules, programmatic desk, publisher relationships), and a thin operations layer (one financial controller, no dedicated data or tech function).</p>
+        <p style="margin-top:12px; font-size:12px; color: var(--muted);">The defining characteristic: delivery capacity scales linearly with headcount. Adding a client means adding hours. Adding hours means adding people.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 2: CONSTRAINT -->
+<section id="constraint">
+  <div class="container">
+    <div class="section-label reveal">02 &nbsp; The Constraint</div>
+    <h2 class="section-headline reveal">Revenue and headcount are directly linked.<br>That's the problem.</h2>
+    <p class="section-deck reveal">Every additional account requires a new hire. That hire costs $80–110k fully loaded and takes 6–12 months before producing value. Revenue can grow without proportional cost — but only until servicing capacity is exhausted. Then it jumps.</p>
+
+    <div class="constraint-visual reveal">
+      <div class="constraint-step">
+        <div class="constraint-step-label">New client won</div>
+        <div class="constraint-step-sub">Revenue opportunity</div>
+        <span class="constraint-arrow">›</span>
+      </div>
+      <div class="constraint-step">
+        <div class="constraint-step-label">Account exec needed</div>
+        <div class="constraint-step-sub">Capacity required</div>
+        <span class="constraint-arrow">›</span>
+      </div>
+      <div class="constraint-step bottleneck">
+        <div class="constraint-step-label">Hire + 6–12 month ramp</div>
+        <div class="constraint-step-sub">The delay and the cost</div>
+        <span class="constraint-arrow">›</span>
+        <div class="bottleneck-label">Bottleneck</div>
+      </div>
+      <div class="constraint-step">
+        <div class="constraint-step-label">Revenue realised</div>
+        <div class="constraint-step-sub">12+ months later</div>
+      </div>
+    </div>
+
+    <div class="pain-grid reveal">
+      <div class="pain-card">
+        <div class="pain-card-title">Reporting</div>
+        <p>3–4 hours per account per week pulling data from ad platforms into formatted client decks. Happens every week, for every client. Across 15 account-facing people, that's 45–60 hours of manual work weekly.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-card-title">Brief-to-plan</div>
+        <p>A media schedule takes 1–2 days to build from a client brief from scratch. Bottlenecks response time, slows campaign starts, and limits how many new briefs the team can turn around in a month.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-card-title">Reconciliation</div>
+        <p>Post-buy invoice matching is Excel-based and error-prone. On $150–200M in managed spend, even small reconciliation errors carry financial exposure. This work is currently distributed across the account team and finance.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-card-title">New business</div>
+        <p>One person (Guy Taffs) owns all revenue development. The capacity ceiling on growth is a single individual's available hours. No structural relief, no leverage, no scale without another hire.</p>
+      </div>
+    </div>
+
+    <div class="amber-box reveal">
+      <p><strong>The arithmetic:</strong> to absorb one additional account worth $300–500k in revenue, Sandbox must hire at $80–110k fully loaded and wait 6–12 months for ramp. The cost of capacity is high. The time to capacity is long. <strong>AI changes both.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 3: OPPORTUNITY -->
+<section id="opportunity">
+  <div class="container">
+    <div class="section-label reveal">03 &nbsp; The Opportunity</div>
+    <h2 class="section-headline reveal">AI doesn't replace the account executive.<br>It eliminates the parts of their day that<br>should never have needed a person.</h2>
+    <p class="section-deck reveal">This is not a cost reduction. It is a capability expansion. Every hour recovered from manual work is an hour available for the work that actually grows the business — deeper relationships, proactive strategy, account expansion, new business support.</p>
+
+    <div class="before-after reveal">
+      <div class="ba-col">
+        <div class="ba-header before">Today — where time actually goes</div>
+        <div class="ba-body">
+          <ul>
+            <li>3–4 hrs/week: Pulling and formatting campaign data from ad platforms</li>
+            <li>2–3 hrs/week: Drafting client status emails and weekly report narratives from scratch</li>
+            <li>2 hrs/week: Building media plans from client briefs from scratch</li>
+            <li>1–2 hrs/week: Reconciling invoices against planned schedules</li>
+            <li>Residual hours: actual strategy, relationships, and growth work</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ba-arrow">→</div>
+      <div class="ba-col">
+        <div class="ba-header after">With AI — what becomes possible</div>
+        <div class="ba-body">
+          <ul>
+            <li>Reports auto-generated from platform APIs — exec reviews and sends</li>
+            <li>Client emails drafted from live campaign data — exec edits and approves in minutes</li>
+            <li>AI generates first-cut media plan from brief — planner refines in 1 hour, not 2 days</li>
+            <li>Reconciliation automated — discrepancies flagged, queue cleared</li>
+            <li>5–6 hrs/week returned to advisory, retention, and growth activity per person</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 4: FRAMEWORK -->
+<section id="framework">
+  <div class="container">
+    <div class="section-label reveal">04 &nbsp; The Framework</div>
+    <h2 class="section-headline reveal">What AI owns. What humans own.<br>What they share.</h2>
+    <p class="section-deck reveal">Not all work is equally automatable. The framework maps five levels of the value hierarchy against three ownership modes. Reading the levels bottom-up shows where AI can act immediately — and where human judgment remains irreplaceable.</p>
+
+    <table class="framework-table reveal">
+      <thead>
+        <tr>
+          <th class="col-level">Level</th>
+          <th>AI only</th>
+          <th>Human × AI</th>
+          <th>Human only</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="level-cell">Step</td>
+          <td>Data pulls, cell formatting, template sends, standard email triggers</td>
+          <td>—</td>
+          <td>Final client approval before send</td>
+        </tr>
+        <tr>
+          <td class="level-cell">Task</td>
+          <td>Report formatting, email drafting, data extraction, invoice matching</td>
+          <td>Report narrative, brief analysis, first-cut schedule</td>
+          <td>Client advisory, negotiation, relationship judgment</td>
+        </tr>
+        <tr>
+          <td class="level-cell">Process</td>
+          <td>Post-buy reconciliation, invoice-to-plan matching</td>
+          <td>Brief-to-plan drafting, programmatic optimisation, campaign pacing</td>
+          <td>Campaign strategy, channel planning, client onboarding</td>
+        </tr>
+        <tr>
+          <td class="level-cell">Outcome</td>
+          <td>Performance dashboards, anomaly detection alerts</td>
+          <td>Campaign optimisation, QBR preparation, retention analysis</td>
+          <td>Client relationships, accountability, escalation decisions</td>
+        </tr>
+        <tr>
+          <td class="level-cell">Strategy</td>
+          <td>Market research synthesis, competitive data aggregation</td>
+          <td>Pitch preparation, new business intelligence, competitive briefs</td>
+          <td>Client strategy, pricing decisions, business development</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Mobile card stack (hidden on desktop, shown on mobile via CSS) -->
+    <div class="framework-cards" style="display:none;">
+      <div class="fw-card">
+        <div class="fw-card-level step-task">Step &amp; Task — Automate immediately</div>
+        <div class="fw-row"><span class="fw-col-head">AI only</span><span class="fw-col-val">Data pulls, formatting, template sends, report layout, email drafting, invoice matching</span></div>
+        <div class="fw-row"><span class="fw-col-head">Human × AI</span><span class="fw-col-val">Report narrative review, brief analysis</span></div>
+        <div class="fw-row"><span class="fw-col-head">Human only</span><span class="fw-col-val">Final client approval, negotiation, advisory</span></div>
+      </div>
+      <div class="fw-card">
+        <div class="fw-card-level">Process — Where transformation occurs</div>
+        <div class="fw-row"><span class="fw-col-head">AI only</span><span class="fw-col-val">Post-buy reconciliation, invoice-to-plan matching</span></div>
+        <div class="fw-row"><span class="fw-col-head">Human × AI</span><span class="fw-col-val">Brief-to-plan drafting, programmatic optimisation, campaign pacing</span></div>
+        <div class="fw-row"><span class="fw-col-head">Human only</span><span class="fw-col-val">Campaign strategy, channel planning, client onboarding</span></div>
+      </div>
+      <div class="fw-card">
+        <div class="fw-card-level">Outcome — Measure and improve</div>
+        <div class="fw-row"><span class="fw-col-head">AI only</span><span class="fw-col-val">Performance dashboards, anomaly detection</span></div>
+        <div class="fw-row"><span class="fw-col-head">Human × AI</span><span class="fw-col-val">Campaign optimisation, QBR prep, retention analysis</span></div>
+        <div class="fw-row"><span class="fw-col-head">Human only</span><span class="fw-col-val">Client relationships, accountability, escalation</span></div>
+      </div>
+      <div class="fw-card">
+        <div class="fw-card-level">Strategy — Human led, AI informed</div>
+        <div class="fw-row"><span class="fw-col-head">AI only</span><span class="fw-col-val">Market research synthesis, competitive data aggregation</span></div>
+        <div class="fw-row"><span class="fw-col-head">Human × AI</span><span class="fw-col-val">Pitch preparation, new business intelligence</span></div>
+        <div class="fw-row"><span class="fw-col-head">Human only</span><span class="fw-col-val">Client strategy, pricing decisions, business development</span></div>
+      </div>
+    </div>
+      <div class="day-tasks-title">What an account manager's day looks like — and where AI intervenes</div>
+      <div class="task-list">
+        <div class="task-item">
+          <span class="task-time">8:30am</span>
+          <span class="task-desc"><strong style="color:var(--white)">Reporting.</strong> Today: 90 mins pulling data from 4 platforms into a client deck. With AI: auto-generated overnight. Exec spends 10 mins reviewing and sends.</span>
+        </div>
+        <div class="task-item">
+          <span class="task-time">10:00am</span>
+          <span class="task-desc"><strong style="color:var(--white)">Client brief arrives.</strong> Today: 1–2 days to build a media schedule from scratch. With AI: first-cut draft in 20 minutes. Planner refines and approves in 1 hour.</span>
+        </div>
+        <div class="task-item">
+          <span class="task-time">12:00pm</span>
+          <span class="task-desc"><strong style="color:var(--white)">Status update.</strong> Today: 45 mins writing a weekly client email from notes. With AI: drafted from live campaign data in 2 minutes. Exec personalises and sends.</span>
+        </div>
+        <div class="task-item">
+          <span class="task-time">3:00pm</span>
+          <span class="task-desc"><strong style="color:var(--white)">Reconciliation.</strong> Today: 60–90 mins matching publisher invoices to plan in Excel. With AI: automated matching, discrepancies flagged for review only.</span>
+        </div>
+        <div class="task-item">
+          <span class="task-time">4:30pm</span>
+          <span class="task-desc"><strong style="color:var(--white)">Strategic advisory.</strong> Today: no time left. With AI: 2 hours freed for proactive client conversations, upsell opportunities, and relationship development.</span>
+        </div>
+        <div class="task-item">
+          <span class="task-time">Net result</span>
+          <span class="task-desc"><strong style="color:#4ade80">5–6 hours per person per day returned to work that actually grows the business.</strong> Multiplied across 15 account-facing people: 75–90 hours of capacity freed per week across the group.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 5: ROI -->
+<section id="roi">
+  <div class="container">
+    <div class="section-label reveal">05 &nbsp; ROI</div>
+    <h2 class="section-headline reveal">Recovering 5 hours per person per week<br>across 15 people creates capacity for ~9<br>additional accounts — worth $2.25M.</h2>
+
+    <div class="roi-bridge reveal">
+      <div class="roi-step">
+        <div class="roi-step-val">15</div>
+        <div class="roi-step-label">Account-facing people</div>
+        <div class="roi-step-calc">× 5 hrs saved / week</div>
+      </div>
+      <div class="roi-step">
+        <div class="roi-step-val">3,600</div>
+        <div class="roi-step-label">Annual hours freed</div>
+        <div class="roi-step-calc">75 hrs/wk × 48 weeks</div>
+      </div>
+      <div class="roi-step">
+        <div class="roi-step-val">~9</div>
+        <div class="roi-step-label">Accounts unlocked</div>
+        <div class="roi-step-calc">÷ 384 hrs per account/yr</div>
+      </div>
+      <div class="roi-step">
+        <div class="roi-step-val" style="color:#4ade80">$2.25M</div>
+        <div class="roi-step-label">Revenue potential</div>
+        <div class="roi-step-calc">× $250k avg account value</div>
+      </div>
+    </div>
+
+    <table class="roi-table reveal">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Estimate</th>
+          <th>Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="item-col">Year-one investment (all-in)</td>
+          <td class="val-col">$65–140k</td>
+          <td>Tooling, integration, change management</td>
+        </tr>
+        <tr>
+          <td class="item-col">Revenue uplift (conservative)</td>
+          <td class="val-col">$1.5–2.25M</td>
+          <td>60–100% of unlocked capacity realised</td>
+        </tr>
+        <tr>
+          <td class="item-col">Additional gross margin</td>
+          <td class="val-col">$900k–1.35M</td>
+          <td>60% margin; no new fixed cost on absorbed accounts</td>
+        </tr>
+        <tr>
+          <td class="item-col">Payback period</td>
+          <td class="val-col green">&lt; 3 months</td>
+          <td>On conservative revenue assumptions</td>
+        </tr>
+        <tr>
+          <td class="item-col">3-year cumulative impact</td>
+          <td class="val-col green">&gt; $4M</td>
+          <td>Freed capacity compounds — reinvested into growth each year</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Mobile ROI cards -->
+    <div class="roi-cards" style="display:none;">
+      <div class="roi-card"><span class="roi-card-item">Year-one investment</span><span class="roi-card-val">$65–140k</span><span class="roi-card-note">Tooling, integration, change management</span></div>
+      <div class="roi-card"><span class="roi-card-item">Revenue uplift (conservative)</span><span class="roi-card-val">$1.5–2.25M</span><span class="roi-card-note">60–100% of unlocked capacity realised</span></div>
+      <div class="roi-card"><span class="roi-card-item">Additional gross margin</span><span class="roi-card-val">$900k–1.35M</span><span class="roi-card-note">60% margin, no new fixed cost</span></div>
+      <div class="roi-card"><span class="roi-card-item">Payback period</span><span class="roi-card-val green">&lt; 3 months</span><span class="roi-card-note">On conservative assumptions</span></div>
+      <div class="roi-card"><span class="roi-card-item">3-year cumulative impact</span><span class="roi-card-val green">&gt; $4M</span><span class="roi-card-note">Freed capacity compounds annually</span></div>
+    </div>
+  </div>
+</section>
+<section id="rollout">
+  <div class="container">
+    <div class="section-label reveal">06 &nbsp; Rollout</div>
+    <h2 class="section-headline reveal">Six initiatives. Three phases.<br>First results within 30 days.</h2>
+    <p class="section-deck reveal">Prioritised by impact-to-effort ratio. The first three can begin immediately with existing infrastructure — no new platforms, no long lead times.</p>
+
+    <div class="rollout-phase reveal">
+      <div class="phase-header p1">Phase 1 — Now (days 1–30) · Protect and free</div>
+      <table class="rollout-table">
+        <thead>
+          <tr>
+            <th>Initiative</th>
+            <th>Framework layer</th>
+            <th>Time saved</th>
+            <th>Revenue impact</th>
+            <th>Effort</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Automated campaign reporting</td>
+            <td>Step / Task</td>
+            <td>3 hrs × 15/wk</td>
+            <td class="impact">~$900k uplift</td>
+            <td><span class="effort-badge effort-low">Low</span></td>
+          </tr>
+          <tr>
+            <td>Client comms drafting</td>
+            <td>Step</td>
+            <td>1 hr × 15/wk</td>
+            <td class="impact">~$300k uplift</td>
+            <td><span class="effort-badge effort-low">Low</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="rollout-cards" style="display:none;">
+        <div class="ro-card"><span class="ro-name">Automated campaign reporting</span><div class="ro-item"><div class="ro-item-label">Layer</div><div class="ro-item-val">Step / Task</div></div><div class="ro-item"><div class="ro-item-label">Time saved</div><div class="ro-item-val">3 hrs × 15/wk</div></div><div class="ro-item"><div class="ro-item-label">Revenue impact</div><div class="ro-item-val impact">~$900k</div></div><div class="ro-item"><div class="ro-item-label">Effort</div><div class="ro-item-val"><span class="effort-badge effort-low">Low</span></div></div></div>
+        <div class="ro-card"><span class="ro-name">Client comms drafting</span><div class="ro-item"><div class="ro-item-label">Layer</div><div class="ro-item-val">Step</div></div><div class="ro-item"><div class="ro-item-label">Time saved</div><div class="ro-item-val">1 hr × 15/wk</div></div><div class="ro-item"><div class="ro-item-label">Revenue impact</div><div class="ro-item-val impact">~$300k</div></div><div class="ro-item"><div class="ro-item-label">Effort</div><div class="ro-item-val"><span class="effort-badge effort-low">Low</span></div></div></div>
+      </div>
+    </div>
+
+    <div class="rollout-phase reveal">
+      <div class="phase-header p2">Phase 2 — Months 1–3 · Build the backbone</div>
+      <table class="rollout-table">
+        <thead>
+          <tr>
+            <th>Initiative</th>
+            <th>Framework layer</th>
+            <th>Time saved</th>
+            <th>Revenue impact</th>
+            <th>Effort</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Post-buy reconciliation automation</td>
+            <td>Step / Task</td>
+            <td>2 hrs × 15/wk</td>
+            <td class="impact">~$600k uplift</td>
+            <td><span class="effort-badge effort-low">Low</span></td>
+          </tr>
+          <tr>
+            <td>Brief-to-plan acceleration</td>
+            <td>Task / Process</td>
+            <td>2 hrs × 5 planners</td>
+            <td class="impact">~$300k uplift</td>
+            <td><span class="effort-badge effort-med">Med</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="rollout-cards" style="display:none;">
+        <div class="ro-card"><span class="ro-name">Post-buy reconciliation</span><div class="ro-item"><div class="ro-item-label">Layer</div><div class="ro-item-val">Step / Task</div></div><div class="ro-item"><div class="ro-item-label">Time saved</div><div class="ro-item-val">2 hrs × 15/wk</div></div><div class="ro-item"><div class="ro-item-label">Revenue impact</div><div class="ro-item-val impact">~$600k</div></div><div class="ro-item"><div class="ro-item-label">Effort</div><div class="ro-item-val"><span class="effort-badge effort-low">Low</span></div></div></div>
+        <div class="ro-card"><span class="ro-name">Brief-to-plan acceleration</span><div class="ro-item"><div class="ro-item-label">Layer</div><div class="ro-item-val">Task / Process</div></div><div class="ro-item"><div class="ro-item-label">Time saved</div><div class="ro-item-val">2 hrs × 5/wk</div></div><div class="ro-item"><div class="ro-item-label">Revenue impact</div><div class="ro-item-val impact">~$300k</div></div><div class="ro-item"><div class="ro-item-label">Effort</div><div class="ro-item-val"><span class="effort-badge effort-med">Med</span></div></div></div>
+      </div>
+    </div>
+
+    <div class="rollout-phase reveal">
+      <div class="phase-header p3">Phase 3 — Months 4–6 · Scale the business</div>
+      <table class="rollout-table">
+        <thead>
+          <tr>
+            <th>Initiative</th>
+            <th>Framework layer</th>
+            <th>Time saved</th>
+            <th>Revenue impact</th>
+            <th>Effort</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Programmatic optimisation (AI-assisted)</td>
+            <td>Process / Outcome</td>
+            <td>Performance uplift</td>
+            <td class="impact">~$500k+ performance</td>
+            <td><span class="effort-badge effort-med">Med</span></td>
+          </tr>
+          <tr>
+            <td>New business intelligence (Guy Taffs)</td>
+            <td>Task / Process</td>
+            <td>Guy Taffs × AI</td>
+            <td class="impact">~$500k new revenue</td>
+            <td><span class="effort-badge effort-med">Med</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="rollout-cards" style="display:none;">
+        <div class="ro-card"><span class="ro-name">Programmatic optimisation</span><div class="ro-item"><div class="ro-item-label">Layer</div><div class="ro-item-val">Process / Outcome</div></div><div class="ro-item"><div class="ro-item-label">Impact</div><div class="ro-item-val impact">~$500k+</div></div><div class="ro-item"><div class="ro-item-label">Effort</div><div class="ro-item-val"><span class="effort-badge effort-med">Med</span></div></div></div>
+        <div class="ro-card"><span class="ro-name">New business intelligence</span><div class="ro-item"><div class="ro-item-label">Layer</div><div class="ro-item-val">Task / Process</div></div><div class="ro-item"><div class="ro-item-label">Impact</div><div class="ro-item-val impact">~$500k</div></div><div class="ro-item"><div class="ro-item-label">Effort</div><div class="ro-item-val"><span class="effort-badge effort-med">Med</span></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 7: SO WHAT -->
+<section id="so-what">
+  <div class="container">
+    <div class="section-label reveal">07 &nbsp; What This Means for Sandbox</div>
+    <h2 class="section-headline reveal">Three strategic outcomes<br>that reshape the business.</h2>
+    <p class="section-deck reveal">The AI initiatives are not just operational improvements. They change the strategic position of the business — what it can win, how it retains clients, and how it competes.</p>
+
+    <div class="so-what-grid reveal">
+      <div class="so-what-card">
+        <span class="so-what-num">1</span>
+        <div class="so-what-title">Drive new business — move people to hunter roles</div>
+        <p>When account executives are freed from 5 hours of manual work per week, that time can be redirected to new business activity. The distinction between "farmer" (managing existing) and "hunter" (developing new) roles becomes viable without additional headcount. Guy Taffs gains a multiplier — AI-powered prospect research, pitch prep, and competitive intelligence effectively makes one revenue person operate like two.</p>
+      </div>
+      <div class="so-what-card">
+        <span class="so-what-num">2</span>
+        <div class="so-what-title">Increase share of wallet with existing clients</div>
+        <p>The best new revenue is from clients already in the building. When account executives have more time for proactive strategy — reviewing campaign performance, identifying untapped channels, bringing new ideas — existing clients spend more. More campaigns. More ad spend. More commission. The account relationship shifts from reactive management to proactive partnership, which is both stickier and more lucrative.</p>
+      </div>
+      <div class="so-what-card">
+        <span class="so-what-num">3</span>
+        <div class="so-what-title">Compete with larger players on capability</div>
+        <p>Sandbox's advantage is personal service over holding-group scale. AI closes the capability gap without losing that advantage. Automated reporting that rivals what WPP delivers. Programmatic optimisation that matches GroupM's trading desk. Brief turnaround that beats any holding group on speed. The boutique intimacy stays. The operational gap disappears. That's a winning pitch for any mid-market advertiser choosing between Sandbox and a large network.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 8: FIRST MOVER -->
+<section id="first-mover">
+  <div class="container">
+    <div class="section-label reveal">08 &nbsp; Where the Market Is — Why You're a First Mover</div>
+    <h2 class="section-headline reveal">AI adoption is high.<br>Meaningful productivity gains are rare.</h2>
+    <p class="section-deck reveal">The gap between agencies talking about AI and agencies deploying it systematically is enormous. That gap is the opportunity.</p>
+
+    <div class="market-grid reveal">
+      <div class="market-card">
+        <div class="market-card-title">The adoption paradox</div>
+        <p>Industry surveys consistently show 70–80% of media agencies claim to be "using AI." The reality: most are using ChatGPT for occasional copywriting or experimenting with single-use tools. Systematic deployment — AI integrated into core workflows, replacing specific manual processes, measured against time and revenue — is rare.</p>
+        <p>The difference between "using AI" and "AI-enabled operations" is the difference between having a gym membership and being fit. One is a statement. The other is a structural capability.</p>
+      </div>
+      <div class="market-card">
+        <div class="market-card-title">The independent agency window</div>
+        <p>Holding groups (WPP, Publicis, IPG) are investing in AI at scale — but their implementations are slow, bureaucratic, and often designed to protect existing revenue structures rather than create new ones. Their AI initiatives typically take 18–36 months to reach the account team.</p>
+        <p>Independent agencies that move first have a 12–18 month window to establish a genuine operational advantage — better reporting, faster turnaround, more proactive strategy — before the holding groups catch up. That window is open now.</p>
+      </div>
+    </div>
+
+    <div class="insight-box reveal">
+      <p><strong>The first mover position for Sandbox:</strong> an independent agency that can genuinely say "our account executives spend 70% of their time on strategy, not administration" is a fundamentally different product than what the market currently offers. That becomes a pitch differentiator in new business conversations, a retention argument with existing clients, and a talent attraction story for hiring the best account people. AI is the operational enabler. The market position is the prize.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 9: ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-label reveal">09 &nbsp; About</div>
+    <h2 class="section-headline reveal">Background and outcomes.</h2>
+    <p class="section-deck reveal">A decade of senior operations roles in scaling businesses — building the systems, processes, and capability that let companies grow without proportional overhead.</p>
+
+    <div class="about-grid reveal">
+      <div>
+        <div class="about-col-title">Companies</div>
+        <ul class="company-list">
+          <li class="company-item">
+            <div>
+              <div class="company-name">Microsoft</div>
+              <div class="company-role">Operations — Enterprise</div>
+            </div>
+          </li>
+          <li class="company-item">
+            <div>
+              <div class="company-name">NEC</div>
+              <div class="company-role">COO-adjacent — 3 promotions in 4 years</div>
+            </div>
+          </li>
+          <li class="company-item">
+            <div>
+              <div class="company-name">Zoomo</div>
+              <div class="company-role">Senior Operations</div>
+            </div>
+          </li>
+          <li class="company-item">
+            <div>
+              <div class="company-name">Wesfarmers</div>
+              <div class="company-role">Operations</div>
+            </div>
+          </li>
+          <li class="company-item">
+            <div>
+              <div class="company-name">AI / Automation Consultancy</div>
+              <div class="company-role">Founder — 2026</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <div class="about-col-title">Outcomes delivered</div>
+        <ul class="outcome-list">
+          <li class="outcome-item">
+            <p><strong>Built for scale without overhead</strong>Designed and deployed operational infrastructure at NEC that supported 3x growth without proportional headcount increase. Selected for a newly created COO-adjacent role; promoted 3 times in 4 years.</p>
+          </li>
+          <li class="outcome-item">
+            <p><strong>AI and automation deployment</strong>Built working AI/automation tooling and demonstration environments — including an ad agency client reporting automation demo — for use in prospect conversations. Applied the outcome/task/process/step framework to identify and prioritise automation opportunities.</p>
+          </li>
+          <li class="outcome-item">
+            <p><strong>Systems thinking at scale</strong>Consistent pattern across Microsoft, NEC, Zoomo, and Wesfarmers: selected for newly created roles, trusted with ambiguous mandates, and delivered structural improvements that outlasted the role itself.</p>
+          </li>
+          <li class="outcome-item">
+            <p><strong>Direct relevance to Sandbox</strong>The constraint Sandbox faces — revenue growth capped by account team capacity — is structurally identical to constraints solved in previous roles. The difference is the tools available to solve it are now an order of magnitude more powerful.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<section id="close">
+  <div class="container">
+    <div class="close-inner reveal">
+      <p class="close-quote">"The question is not whether to invest.<br>It is how quickly to begin."</p>
+      <p class="close-sub">Prepared for Anthony Colreavy, Chairman — Sandbox Media Pty Ltd &nbsp;·&nbsp; April 2026 &nbsp;·&nbsp; Confidential</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Sandbox Media · AI-Enabled Growth · April 2026</p>
+  <p>Confidential</p>
+</footer>
+
+<script>
+// ── Hamburger menu ──
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+
+document.querySelectorAll('.mobile-link').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  });
+});
+
+// ── Mobile card switching ──
+function applyMobileCards() {
+  const isMobile = window.innerWidth <= 600;
+  // Framework
+  const fwTable = document.querySelector('.framework-table');
+  const fwCards = document.querySelector('.framework-cards');
+  if (fwTable && fwCards) {
+    fwTable.style.display = isMobile ? 'none' : '';
+    fwCards.style.display = isMobile ? 'flex' : 'none';
+  }
+  // ROI table
+  const roiTable = document.querySelector('.roi-table');
+  const roiCards = document.querySelector('.roi-cards');
+  if (roiTable && roiCards) {
+    roiTable.style.display = isMobile ? 'none' : '';
+    roiCards.style.display = isMobile ? 'flex' : 'none';
+  }
+  // Rollout tables
+  document.querySelectorAll('.rollout-table').forEach(t => t.style.display = isMobile ? 'none' : '');
+  document.querySelectorAll('.rollout-cards').forEach(c => c.style.display = isMobile ? 'flex' : 'none');
+}
+
+applyMobileCards();
+window.addEventListener('resize', applyMobileCards);
+
+// ── Scroll reveal ──
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+reveals.forEach(el => observer.observe(el));
+
+// ── Stagger child reveals ──
+document.querySelectorAll('.scr-grid, .stat-grid, .model-grid, .pain-grid, .so-what-grid, .market-grid, .roi-bridge, .constraint-visual').forEach(parent => {
+  const children = parent.querySelectorAll(':scope > *');
+  children.forEach((child, i) => {
+    child.style.opacity = '0';
+    child.style.transform = 'translateY(20px)';
+    child.style.transition = `opacity 0.6s ease ${i * 80}ms, transform 0.6s ease ${i * 80}ms`;
+  });
+});
+
+const staggerObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll(':scope > *').forEach(child => {
+        child.style.opacity = '1';
+        child.style.transform = 'none';
+      });
+      staggerObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.scr-grid, .stat-grid, .model-grid, .pain-grid, .so-what-grid, .market-grid, .roi-bridge, .constraint-visual').forEach(el => staggerObserver.observe(el));
+
+// ── Active nav highlight ──
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    if (window.scrollY >= section.offsetTop - 100) current = section.id;
+  });
+  navLinks.forEach(link => {
+    link.style.color = link.getAttribute('href') === `#${current}` ? 'var(--white)' : '';
+  });
+}, { passive: true });
+</script>
+</body>
+</html>
